@@ -91,7 +91,9 @@ const Form = () => {
     );
   };
 
-
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+  };
 
   // Renderizado del formulario
   return (
@@ -187,12 +189,12 @@ const Form = () => {
                 {personas.map((persona, index) => (
                   <li key={persona.id} className="list-group-item">
                     <strong>
-                      {persona.nombre} {persona.apellido}
+                    {capitalizeFirstLetter(persona.nombre)} {capitalizeFirstLetter(persona.apellido)}
                     </strong>
                     <br />
                     Teléfono: {persona.telefono}
                     <br />
-                    Dirección: {persona.direccion}
+                    Dirección: {capitalizeFirstLetter(persona.direccion)}
                     <br />
                     Fecha de Nacimiento:{" "}
                     {format(new Date(persona.fechaNacimiento), "dd-MM-yyyy")}
